@@ -19,7 +19,7 @@ dag = DAG(dag_id = 'spark_transformation_dag', default_args = default_args)
 app_folder = Variable.get("APP_FOLDER")
 spark_transformation = SparkSubmitOperator(task_id = 'spark_transformation',
                                            conn_id = 'spark_local',
-                                           application = '{app_folder}/spark-transformation.py',
+                                           application = f'{app_folder}/spark-transformation.py',
                                            packages = 'io.delta:delta-core_2.12:0.7.0,org.apache.spark:spark-avro_2.12:3.0.1',
                                            executor_cores = 1,
                                            executor_memory = '1g',
