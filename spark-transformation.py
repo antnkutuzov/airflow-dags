@@ -22,7 +22,7 @@ def add_column_large_family(expedia_data):
         .where("srch_children_cnt > 0") \
         .withColumn("large_family", col("srch_children_cnt") > 2)
 
-def save_expedia_data(filtered_expedia)
+def save_expedia_data(filtered_expedia):
     filtered_expedia \
         .write \
         .format("avro") \
